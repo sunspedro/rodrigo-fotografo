@@ -20,6 +20,7 @@
     will-change: transform
     contain: layout paint style
     video
+      display: block
       width: 100%
       z-index: 1
       position: relative
@@ -53,6 +54,80 @@
     .banner-title
       font-family: $font-titulos
       font-size: 120px
-    .description
-      font-size: 30px
+    .banner-sub
       font-family: $font-textos
+      font-size: 22px
+    .description
+      font-size: 18px
+      font-family: $font-textos
+
+.intro
+  background-image: url('./../img/background-claro.webp')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  background-color: $color-light-dark
+  min-height: 600px
+  .intro-text
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    padding-top: 50px
+  .intro-title
+    color: $color-orange
+    font-family: $font-titulos
+    font-size: 60px
+  .description
+      font-size: 22px
+      font-family: $font-textos
+      color: $color-white
+
+.portifolio
+  padding: 30px 0px
+  .intro-text
+    display: flex
+    justify-content: center
+    padding: 40px 0px 40px 0px
+    .portifolio-title
+      color: $color-orange
+      font-family: $font-titulos
+      font-size: 60px
+  .portifolio-item
+    .portifolio-item-text
+      color: $color-black
+  .portifolio-item
+    border-radius: 8px
+    overflow: hidden
+    position: relative
+    .portifolio-text
+      position: absolute
+      bottom: 0%
+      top: 100%
+      width: 100%
+      transition: top 2s ease
+      p
+        display: none
+        margin-bottom: 0px
+      .title
+        padding: 10px 0px 5px 15px
+        color: $color-orange
+        font-family: $font-titulos
+        font-size: 36px
+      .description
+        padding: 0px 0px 0px 25px
+        font-size: 18px
+        font-family: $font-textos
+        color: $color-light-white
+    &:hover
+      img
+        filter: grayscale(1)
+        transition: filter 1s ease
+      .portifolio-text
+        transition: top 1s ease
+        background: rgba($color-black, 0.4)
+        backdrop-filter: blur(10px)
+        -webkit-backdrop-filter: blur(10px)
+        top: 75%
+        p
+          display: flex
