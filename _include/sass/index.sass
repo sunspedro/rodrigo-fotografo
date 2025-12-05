@@ -1,6 +1,32 @@
 @use "../abstract/variables" as *
 @use "sass:color";
 
+header
+  position: fixed
+  top: 0
+  width: 100%
+  z-index: 999
+
+  .logo-wrapper
+    position: relative
+    width: 200px
+    margin: 0 auto
+    padding: 30px
+
+  .logo
+    width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    transition: opacity 0.3s ease
+    pointer-events: none
+
+  .logo-preto
+    opacity: 1
+
+  .logo-colorido
+    opacity: 0
+
 body
   background: $color-black
   color: $color-white
@@ -86,7 +112,7 @@ body
     max-width: 900px
     margin: 0 auto
     .description
-      font-size: 18px
+      font-size: 20px
       font-family: $font-textos
       color: $color-black
       line-height: 1.7

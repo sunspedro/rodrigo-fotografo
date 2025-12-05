@@ -12,6 +12,12 @@
 </head>
 <body>
   <header>
+    <div class="logo-wrapper">
+      <img src="img/logo-preto.webp" class="logo logo-preto" alt="Logo Preto">
+      <img src="img/logo-colorido.webp" class="logo logo-colorido" alt="Logo Colorido">
+    </div>
+</header>
+  <main>
     <section class="banner animate" role="banner">
       <div class="container-fluid p-0">
         <div class="bg-image-right">
@@ -34,9 +40,7 @@
         </div>
       </div>
     </section>
-  </header>
 
-  <main>
     <section class="intro" id="intro">
       <div class="container">
         <div class="row">
@@ -115,10 +119,10 @@
     <section class="contato mx-auto">
       <div class="container">
         <div class="row">
-          <div class="col-lg-2 d-flex align-items-center justify-content-center">
+          <div class="col-lg-3 d-flex align-items-center justify-content-center">
             <h2 class="contato-title">Contato:</h2>
           </div>
-          <div class="col-lg-10 d-flex align-items-center justify-content-center">
+          <div class="col-lg-9 d-flex align-items-center justify-content-center">
             <ul class="contato-list">
               <li><a class="contato-link" href="https://wa.me/555499732712"><span>WhatsApp:</span> (54) 9973.2712</a></li>
               <li><a class="contato-link" href="mailto:ruodrigpaim@gmail.com"><span>Email:</span> ruodrigpaim@gmail.com</a></li>
@@ -135,31 +139,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script src="_include/js/script.js"></script>
 
-  <script>
-    Fancybox.bind("[data-fancybox]", {
-      animated: true,
-      caption: (f, s) => s.caption,
-      Thumbs: false,
-      Toolbar: { display: ["close"] },
-      contentClick: "iterateZoom",
-      Images: { zoom: true }
-    });
-
-    (function() {
-      const intro = document.getElementById('intro');
-
-      function handleScrollShow() {
-        const rect = intro.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 120) {
-          intro.classList.add('show');
-          window.removeEventListener('scroll', handleScrollShow);
-        }
-      }
-
-      window.addEventListener('scroll', handleScrollShow);
-      document.addEventListener('DOMContentLoaded', handleScrollShow);
-    })();
-  </script>
 </body>
 </html>
