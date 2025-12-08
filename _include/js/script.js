@@ -9,7 +9,7 @@ Fancybox.bind("[data-fancybox]", {
 });
 
 (function() {
-  const intro = document.getElementById('intro');
+  const intro = document.getElementById('quem-sou');
 
   function handleScrollShow() {
     const rect = intro.getBoundingClientRect();
@@ -34,22 +34,17 @@ document.addEventListener("scroll", () => {
   const introTop = intro.offsetTop;
   const introBottom = introTop + intro.offsetHeight;
 
-  // O fade só começa quando o header encosta na intro
   const start = introTop - headerHeight;
   const end = introBottom - headerHeight;
 
   let progress = (scrollY - start) / (end - start);
 
-  // Antes da intro → 100% cinza
   if (scrollY < start) progress = 0;
 
-  // Depois da intro → volta ao cinza
   if (scrollY > end) progress = 0;
 
-  // Limitando
   progress = Math.min(Math.max(progress, 0), 1);
 
-  // Aplicação da opacidade
   logoPreto.style.opacity = 1 - progress;
   logoColorido.style.opacity = progress;
 });

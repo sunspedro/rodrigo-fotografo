@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="css/reset.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
   <link rel="stylesheet" href="css/index.min.css" />
@@ -18,7 +19,7 @@
     </div>
 </header>
   <main>
-    <section class="banner animate" role="banner">
+    <section class="banner animate" id="intro" role="banner">
       <div class="container-fluid p-0">
         <div class="bg-image-right">
           <div class="container h-100">
@@ -41,15 +42,15 @@
       </div>
     </section>
 
-    <section class="intro" id="intro">
+    <section class="intro" id="quem-sou">
       <div class="container">
         <div class="row">
           <div class="intro-text col-12">
             <h2 class="intro-title">Quem sou</h2>
             <div class="intro-body">
-              <p class="description excerpt">
-                Meu ouvido não escuta o que a inveja fala. Que o olho da maldade nunca possa me enxergar. Trazendo profissionalismo, estética e agregando valor para sua ideia.
-              </p>
+              <p class="description excerpt">Sou Rodrigo, 20 anos, criador visual brasileiro.Trabalho com edição desde os 10 anos, quando comecei fazendo vídeos para o YouTube e, ao longo do tempo, me descobri na fotografia e na produção de vídeo. Hoje atuo como um artista visual completo, unindo experiência prática e formação técnica.</p>
+              <p class="description excerpt">Tenho cursos em Design, Fotografia e Adobe Photoshop (minha ferramenta de maior domínio). Trabalho com edição de vídeos, correção de cor, efeitos sonoros, cortes dinâmicos, gameplays, além de criar miniaturas para diversos nichos.</p>
+              <p class="description excerpt">Busco sempre unir técnica, criatividade e narrativa visual em tudo o que produzo.</p>
             </div>
           </div>
         </div>
@@ -65,12 +66,11 @@
         </div>
 
         <div class="row g-4">
-
           <div class="col-lg-4">
-            <a data-fancybox="galeria-amigos" href="img/amigos/01.webp">
+            <a data-fancybox="galeria-amigos" href="img/amigos/1.webp">
               <article class="portifolio-item" aria-label="Amigos">
                 <div class="portifolio-imagem">
-                  <img src="img/amigos/01.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Amigos"/>
+                  <img src="img/amigos/1.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Amigos"/>
                 </div>
                 <div class="portifolio-text">
                   <p class="title">Amigos</p>
@@ -78,16 +78,16 @@
                 </div>
               </article>
             </a>
-            <a data-fancybox="galeria-amigos" href="img/amigos/02.webp"></a>
-            <a data-fancybox="galeria-amigos" href="img/amigos/03.webp"></a>
-            <a data-fancybox="galeria-amigos" href="img/amigos/04.webp"></a>
+            <?php for($i=2;$i<20;$i++): ?>
+              <a data-fancybox="galeria-amigos" href="img/amigos/<?php echo $i ?>.webp"></a>
+            <?php endfor; ?>
           </div>
 
           <div class="col-lg-4">
-            <a data-fancybox="galeria-lugares" href="img/lugares/1.webp">
+            <a data-fancybox="galeria-lugares" href="img/lugares/01.webp">
               <article class="portifolio-item" aria-label="Lugares">
                 <div class="portifolio-imagem">
-                  <img src="img/lugares/1.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Lugares"/>
+                  <img src="img/lugares/01.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Lugares"/>
                 </div>
                 <div class="portifolio-text">
                   <p class="title">Lugares</p>
@@ -95,8 +95,6 @@
                 </div>
               </article>
             </a>
-            <a data-fancybox="galeria-lugares" href="img/lugares/2.webp"></a>
-            <a data-fancybox="galeria-lugares" href="img/lugares/3.webp"></a>
           </div>
 
           <div class="col-lg-4">
@@ -112,29 +110,63 @@
               </article>
             </a>
           </div>
-
         </div>
       </div>
     </section>
-    <section class="contato mx-auto">
+    <section class="contato mx-auto" id="contato">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <h2 class="contato-title">Contato:</h2>
+        <div class="row align-items-center">
+          <div class="col-lg-3 text-center text-lg-start">
+            <h2 class="contato-title">Contato</h2>
           </div>
-          <div class="col-lg-9 d-flex align-items-center justify-content-center">
+          <div class="col-lg-9">
             <ul class="contato-list">
-              <li><a class="contato-link" href="https://wa.me/555499732712"><span>WhatsApp:</span> (54) 9973.2712</a></li>
-              <li><a class="contato-link" href="mailto:ruodrigpaim@gmail.com"><span>Email:</span> ruodrigpaim@gmail.com</a></li>
-              <li><a class="contato-link" href="https://www.instagram.com/ruodrig/"><span>Instagram:</span> @Ruodrig</a></li>
+              <li>
+                <a class="contato-link" href="https://wa.me/555499732712"><span>WhatsApp:</span> (54) 9973.2712</a>
+              </li>
+              <li>
+                <a class="contato-link" href="mailto:ruodrigpaim@gmail.com"><span>Email:</span> ruodrigpaim@gmail.com</a>
+              </li>
+              <li>
+                <a class="contato-link" href="https://www.instagram.com/ruodrig/"><span>Instagram:</span> @Ruodrig</a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-  </main>
-  <footer>
 
+  </main>
+  <footer class="footer">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-logo">
+          <img src="img/logo-colorido.webp" alt="Logo">
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-title">Navegação</h4>
+          <nav class="footer-nav">
+            <a href="#intro">Intro</a>
+            <a href="#quem-sou">Quem sou</a>
+            <a href="#portifolio">Portfólio</a>
+            <a href="#contato">Contato</a>
+          </nav>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <h4 class="footer-title">Conecte-se comigo</h4>
+          <div class="footer-social">
+            <a href="https://wa.me/555499732712"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/ruodrig/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="mailto:ruodrigpaim@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i> Linkedin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 — Todos os direitos reservados. Desenvolvido por <a href="https://wa.me/5554984036584">Pedro Suns</a>.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

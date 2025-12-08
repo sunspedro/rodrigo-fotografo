@@ -2,12 +2,13 @@
 @use "sass:color";
 
 header
+  padding: 5px
   position: fixed
   top: 0
   width: 100%
   z-index: 999
-
   .logo-wrapper
+    padding-top: 5px
     position: relative
     width: 200px
     margin: 0 auto
@@ -187,25 +188,148 @@ body
           display: block
 
 .contato
+  position: relative
+  overflow: hidden
   display: flex
   justify-content: center
   background-color: $color-orange
-  width: 60%
-  border-radius: 20px
-  padding: 40px
-  margin-block: 100px
+  width: 70%
+  border-radius: 24px
+  padding: 50px
+  margin-block: 120px
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15)
+  transition: transform .5s ease, box-shadow .5s ease, background-color 1s ease-in-out
+  &::before
+    content: ""
+    position: absolute
+    width: 180px
+    height: 180px
+    border-radius: 50%
+    background: rgba(255,255,255,0.45)
+    top: -40px
+    left: -40px
+    animation: bubbleMove1 10s infinite ease-in-out alternate
+    filter: blur(14px)
+    transition: background-color 1s ease-in-out, opacity 1s ease-in-out
+  &::after
+    content: ""
+    position: absolute
+    width: 260px
+    height: 260px
+    border-radius: 50%
+    background: rgba(255,255,255,0.35)
+    bottom: -60px
+    right: -60px
+    animation: bubbleMove2 14s infinite ease-in-out alternate
+    filter: blur(22px)
+    transition: background-color 1s ease-in-out, opacity 1s ease-in-out
+  &:hover
+    transform: translateY(-6px)
+    box-shadow: 0 16px 55px rgba(0,0,0,0.23)
+    background-color: $color-white
+    &::before
+      background: rgba(0,0,0,0.55)
+      opacity: .7
+    &::after
+      background: rgba(0,0,0,0.45)
+      opacity: .55
+    .contato-title
+      color: $color-orange
   .contato-title
     color: $color-black
     font-family: $font-titulos
     font-size: 100px
-    margin-bottom: 0px
+    letter-spacing: 5px
+    margin-bottom: 20px
+    line-height: 1
+    transition: color 1s ease-in-out
   .contato-list
-    margin-bottom: 0px
+    list-style: none
+    padding-left: 200px
+    margin: 0
+    display: flex
+    flex-direction: column
+    gap: 16px
     li
       .contato-link
         text-decoration: none
         color: $color-black
         font-size: 24px
+        font-weight: 500
+        transition: opacity .3s ease
+        &:hover
+          opacity: .6
+          color: $color-orange
+
+@keyframes bubbleMove1
+  0%
+    transform: translate(0,0) scale(1)
+  100%
+    transform: translate(40px,60px) scale(1.2)
+
+@keyframes bubbleMove2
+  0%
+    transform: translate(0,0) scale(1)
+  100%
+    transform: translate(-50px,-30px) scale(1.15)
+
+.footer
+  background: $color-light-white
+  color: $color-black
+  padding-top: 80px
+  padding-bottom: 10px
+  margin-top: 120px
+  .footer-logo
+    align-items: center
+  .footer-text
+    font-size: 0.95rem
+    opacity: .7
+    line-height: 1.5
+  .footer-title
+    font-size: 3rem
+    font-weight: 600
+    margin-bottom: 25px
+  .footer-nav
+    display: flex
+    flex-direction: column
+    gap: 12px
+    a
+      text-decoration: none
+      font-size: 22px
+      color: $color-light-dark
+      opacity: .8
+      transition: .3s ease
+      &:hover
+        opacity: 1
+        transform: translateX(4px)
+  .footer-social
+    display: flex
+    flex-direction: column
+    gap: 15px
+    a
+      color: $color-light-dark
+      text-decoration: none
+      font-size: 1.1rem
+      display: flex
+      align-items: center
+      gap: 10px
+      padding: 8px 0
+      transition: .3s ease
+      i
+        font-size: 1.3rem
+      &:hover
+        transform: translateX(4px)
+        opacity: .9
+  .footer-bottom
+    text-align: center
+    margin-top: 40px
+    font-size: .9rem
+    opacity: .7
+    a
+      text-decoration: none
+      color: $color-light-dark
+      &:hover
+        color: $color-orange
 
 @media (max-width: 992px)
   .banner
@@ -220,6 +344,13 @@ body
       font-size: 36px
     .intro-body
       padding: 0 20px
+  .contato
+    width: 90%
+    padding: 40px
+    .contato-title
+      font-size: 56px
+    .contato-list .contato-link
+      font-size: 22px
 
 @media (max-width: 576px)
   .banner
@@ -233,3 +364,10 @@ body
           font-size: 22px
         .description
           font-size: 14px
+  .contato
+    text-align: center
+    padding: 35px
+    .contato-title
+      font-size: 48px
+    .contato-list
+      align-items: center
