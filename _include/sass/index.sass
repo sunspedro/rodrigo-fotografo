@@ -96,7 +96,7 @@ body
     justify-content: center
     text-align: center
   .intro-title
-    color: $color-orange
+    color: $color-light-dark
     font-family: $font-titulos
     font-size: 48px
     position: relative
@@ -105,15 +105,15 @@ body
       content: ""
       width: 120px
       height: 4px
-      background: $color-orange
+      background: $color-light-dark
       display: block
-      margin: 10px auto 0 auto
+      margin: 0px auto 0 auto
       border-radius: 4px
   .intro-body
     max-width: 900px
     margin: 0 auto
     .description
-      font-size: 20px
+      font-size: 16px
       font-family: $font-textos
       color: $color-black
       line-height: 1.7
@@ -142,7 +142,7 @@ body
     .portifolio-title
       color: $color-orange
       font-family: $font-titulos
-      font-size: 44px
+      font-size: 68px
   .portifolio-item
     border-radius: 8px
     overflow: hidden
@@ -169,10 +169,11 @@ body
         padding: 10px 0 5px 15px
         color: $color-orange
         font-family: $font-titulos
-        font-size: 28px
+        font-size: 36px
+        letter-spacing: 3px
       .description
-        padding: 0 0 12px 25px
-        font-size: 16px
+        padding-left: 15px
+        font-size: 14px
         font-family: $font-textos
         color: $color-light-white
     &:hover
@@ -183,7 +184,7 @@ body
         background: rgba($color-black, 0.45)
         backdrop-filter: blur(8px)
         -webkit-backdrop-filter: blur(8px)
-        top: 70%
+        top: 71%
         p
           display: block
 
@@ -233,8 +234,6 @@ body
     &::after
       background: rgba(0,0,0,0.45)
       opacity: .55
-    .contato-title
-      color: $color-orange
   .contato-title
     color: $color-black
     font-family: $font-titulos
@@ -278,6 +277,7 @@ body
   color: $color-black
   padding-top: 80px
   padding-bottom: 10px
+  padding-inline: 200px
   margin-top: 120px
   .footer-logo
     align-items: center
@@ -325,12 +325,11 @@ body
     text-align: center
     margin-top: 40px
     font-size: .9rem
-    opacity: .7
+    p
+      color: $color-light-dark
     a
       text-decoration: none
-      color: $color-light-dark
-      &:hover
-        color: $color-orange
+      color: #008009
 
 @media (max-width: 992px)
   .banner
