@@ -23,6 +23,7 @@ Fancybox.bind("[data-fancybox]", {
   document.addEventListener('DOMContentLoaded', handleScrollShow);
 })();
 
+//logo
 document.addEventListener("scroll", () => {
   const intro = document.querySelector(".intro");
   const logoPreto = document.querySelector(".logo-preto");
@@ -41,10 +42,60 @@ document.addEventListener("scroll", () => {
 
   if (scrollY < start) progress = 0;
 
-  if (scrollY > end) progress = 0;
-
   progress = Math.min(Math.max(progress, 0), 1);
 
   logoPreto.style.opacity = 1 - progress;
   logoColorido.style.opacity = progress;
+});
+
+//banner
+document.addEventListener("DOMContentLoaded", () => {
+  const bannerNovo = document.querySelector(".banner-novo");
+
+  if (!bannerNovo) return;
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bannerNovo.classList.add("show");
+          obs.unobserve(bannerNovo);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(bannerNovo);
+});
+
+//entrada-portifolio
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.querySelector(".portifolio");
+
+  if (!section) return;
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          section.classList.add("show");
+          obs.unobserve(section);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(section);
+});
+
+//scroll
+$('a[href*="#"]').on('click', function (e) {
+  e.preventDefault();
+  var target = $(this).attr("href");
+  $('html, body').stop().animate({
+    scrollTop: ($(target).offset().top)
+  }, 600);
+  return false;
 });

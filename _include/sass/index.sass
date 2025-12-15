@@ -40,47 +40,83 @@ body
   padding-left: 15px
   padding-right: 15px
 
-.banner
+.banner-novo
+  padding: 140px 0
   background: $color-black
   color: $color-white
-  padding: 120px 0
-  .bg-image-right
-    width: 100%
-  .row
+
+  .banner-novo-container
     display: flex
     align-items: center
-  .banner-text-container
-    display: flex
-    align-items: center
-  .banner-text
-    transition: all 0.6s ease
-    text-align: left
-    max-width: 620px
-    .banner-title
+    justify-content: space-between
+    gap: 40px
+
+  .banner-novo-text
+    max-width: 540px
+    opacity: 0
+    transform: translateY(30px)
+    transition: opacity 1s ease .2s, transform 1s ease .2s
+
+    .title
       font-family: $font-titulos
-      font-size: 88px
-      line-height: 0.95
-      letter-spacing: 1px
-      text-shadow: 0 0 8px rgba(255,255,255,0.06)
-    .banner-sub
-      font-family: $font-textos
+      font-size: 72px
+      line-height: 1
+      margin-bottom: 18px
+
+    .subtitle
       font-size: 20px
-      margin-top: 6px
-    .description
-      font-size: 16px
-      font-family: $font-textos
-      margin-top: 10px
-  .banner-image
-    max-width: 620px
-    width: 100%
-    height: auto
-    object-fit: cover
-    border-radius: 24px
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6)
+      opacity: .8
+
+  .banner-novo-galeria
+    position: relative
+    width: 500px
+    height: 620px
+
+    .galeria-item
+      position: absolute
+      width: 210px
+      height: 280px
+      object-fit: cover
+      border-radius: 18px
+      opacity: 0
+      transform: translateY(40px)
+      animation: float 6s ease-in-out infinite alternate
+      transition: opacity 1s ease, transform 1s ease
+
+    .item-1
+      top: 0
+      left: 0
+      animation-delay: .2s
+
+    .item-2
+      top: 40px
+      right: 0
+      animation-delay: .4s
+
+    .item-3
+      bottom: 20px
+      left: 30px
+      animation-delay: .6s
+
+    .item-4
+      bottom: 0
+      right: 10px
+      animation-delay: .8s
+
+.banner-novo.show
+  .banner-novo-text,
+  .banner-novo-galeria .galeria-item
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes float
+  0%
+    transform: translateY(0)
+  100%
+    transform: translateY(-18px)
 
 .intro
-  padding-top: 140px
-  padding-bottom: 120px
+  padding-block: 160px
   background: $color-white
   color: $color-black
   min-height: 420px
@@ -135,6 +171,12 @@ body
   background-position: center
   background-repeat: no-repeat
   padding: 120px 0
+  opacity: 0
+  transform: translateY(40px)
+  transition: opacity .9s ease, transform .9s ease
+  &.show
+    opacity: 1
+    transform: translateY(0)
   .intro-text
     display: flex
     justify-content: center
@@ -193,8 +235,8 @@ body
   overflow: hidden
   display: flex
   justify-content: center
-  background-color: $color-orange
-  width: 70%
+  background-color: $color-white
+  width: 60%
   border-radius: 24px
   padding: 50px
   margin-block: 120px
@@ -206,7 +248,7 @@ body
     width: 180px
     height: 180px
     border-radius: 50%
-    background: rgba(255,255,255,0.45)
+    background: rgba(0,0,0,0.55)
     top: -40px
     left: -40px
     animation: bubbleMove1 10s infinite ease-in-out alternate
@@ -218,7 +260,7 @@ body
     width: 260px
     height: 260px
     border-radius: 50%
-    background: rgba(255,255,255,0.35)
+    background: rgba(0,0,0,0.45)
     bottom: -60px
     right: -60px
     animation: bubbleMove2 14s infinite ease-in-out alternate
@@ -227,12 +269,9 @@ body
   &:hover
     transform: translateY(-6px)
     box-shadow: 0 16px 55px rgba(0,0,0,0.23)
-    background-color: $color-white
     &::before
-      background: rgba(0,0,0,0.55)
       opacity: .7
     &::after
-      background: rgba(0,0,0,0.45)
       opacity: .55
   .contato-title
     color: $color-black

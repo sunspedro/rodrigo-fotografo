@@ -21,25 +21,17 @@
 </header>
 
 <main>
-  <section class="banner animate" id="intro" role="banner">
-    <div class="container-fluid p-0">
-      <div class="bg-image-right">
-        <div class="container h-100">
-          <div class="row h-100">
-            <div class="col-lg-6 h-100">
-              <div class="banner-text-container h-100">
-                <div class="banner-text">
-                  <h1 class="banner-title">Rodrigo Paim</h1>
-                  <p class="banner-sub mb-2">Portfólio profissional</p>
-                  <p class="description">Trazendo profissionalismo, estética e agregando valor para sua ideia.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 h-100 d-flex align-items-center justify-content-end">
-              <img class="banner-image" src="img/banner-rodrigo.webp" alt="Retrato de Rodrigo Paim" title="Retrato profissional de Rodrigo Paim" width="700" height="700"/>
-            </div>
-          </div>
-        </div>
+  <section class="banner-novo" id="intro">
+    <div class="container banner-novo-container">
+      <div class="banner-novo-text">
+        <h1 class="title">RODRIGO PAIM</h1>
+        <p class="subtitle">Fotografia com intensidade, emoção e autenticidade.</p>
+      </div>
+      <div class="banner-novo-galeria">
+        <img src="img/amigos/1.webp" class="galeria-item item-1" alt="">
+        <img src="img/lugares/01.webp" class="galeria-item item-2" alt="">
+        <img src="img/estudio/1.webp" class="galeria-item item-3" alt="">
+        <img src="img/amigos/2.webp" class="galeria-item item-4" alt="">
       </div>
     </div>
   </section>
@@ -72,8 +64,7 @@
           <a data-fancybox="galeria-amigos" href="img/amigos/1.webp">
             <article class="portifolio-item" aria-label="Retratos Naturais">
               <div class="portifolio-imagem">
-                <img  src="img/amigos/1.webp" class="img-fluid lazyload"width="500"height="750"loading="lazy"alt="Retrato natural — fotografia de pessoa"title="Retrato Natural — Galeria de Amigos"
-                />
+                <img  src="img/amigos/1.webp" class="img-fluid lazyload"width="500"height="750"loading="lazy"/>
               </div>
               <div class="portifolio-text">
                 <p class="title">Retratos Naturais</p>
@@ -82,20 +73,19 @@
               </div>
             </article>
           </a>
-          <?php for($i=2;$i<20;$i++): ?>
+          <?php for($i=2;$i<17;$i++): ?>
             <a data-fancybox="galeria-amigos" href="img/amigos/<?php echo $i ?>.webp" title="Foto da galeria Amigos — <?php echo $i ?>">
-              <img src="img/amigos/<?php echo $i ?>.webp"alt="Foto da galeria Amigos número <?php echo $i ?>"title="Retrato Natural — imagem <?php echo $i ?>"style="display:none"
+              <img src="img/amigos/<?php echo $i ?>.webp"alt="Foto da galeria Amigos número <?php echo $i ?>"style="display:none"
               >
             </a>
           <?php endfor; ?>
         </div>
 
         <div class="col-lg-4">
-          <a data-fancybox="galeria-lugares" href="img/lugares/01.webp">
+          <a data-fancybox="galeria-lugares" href="img/lugares/1.webp">
             <article class="portifolio-item" aria-label="Paisagens Cotidianas">
               <div class="portifolio-imagem">
-                <img src="img/lugares/01.webp" class="img-fluid lazyload"width="500"height="750"loading="lazy"alt="Paisagem fotografada por Rodrigo Paim" title="Paisagens Cotidianas — Fotografia"
-                />
+                <img src="img/lugares/1.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy"/>
               </div>
               <div class="portifolio-text">
                 <p class="title">Paisagens Cotidianas</p>
@@ -103,20 +93,30 @@
               </div>
             </article>
           </a>
+          <?php for($i=2;$i<3;$i++): ?>
+            <a data-fancybox="galeria-lugares" href="img/lugares/<?php echo $i ?>.webp">
+              <img src="img/lugares/<?php echo $i ?>.webp"alt="Foto da galeria Lugares número <?php echo $i ?>" style="display:none"/>
+            </a>
+          <?php endfor; ?>
         </div>
+
         <div class="col-lg-4">
-          <a data-fancybox="galeria-outros" href="img/item.webp">
-            <article class="portifolio-item" aria-label="Outros">
+          <a data-fancybox="galeria-estudio" href="img/estudio/1.webp">
+            <article class="portifolio-item" aria-label="estudio">
               <div class="portifolio-imagem">
-                <img src="img/item.webp"class="img-fluid lazyload"width="500"height="750"loading="lazy"alt="Foto diversa pertencente à categoria Outros"title="Galeria Outros — Fotografia variada"
-                />
+                <img src="img/estudio/1.webp"class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Foto diversa pertencente à categoria estudio"/>
               </div>
               <div class="portifolio-text">
-                <p class="title">Outros</p>
-                <p class="description">Coleção variada de fotos</p>
+                <p class="title">Sessão de estudio</p>
+                <p class="description">Fotos tiradas em uma sessão de estudio na Culture em Caxias do Sul</p>
               </div>
             </article>
           </a>
+          <?php for($i=2;$i<3;$i++): ?>
+            <a data-fancybox="galeria-estudio" href="img/estudio/<?php echo $i ?>.webp">
+              <img src="img/estudio/<?php echo $i ?>.webp" alt="Foto da galeria Estudio número <?php echo $i ?>" style="display:none"/>
+            </a>
+          <?php endfor; ?>
         </div>
       </div>
     </div>
