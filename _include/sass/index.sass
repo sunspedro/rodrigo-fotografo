@@ -1,5 +1,7 @@
 @use "../abstract/variables" as *
 @use "sass:color";
+:root
+  --fs-base: 16px
 
 header
   padding: 5px
@@ -164,71 +166,87 @@ body
         line-height: 1.6
       &.hidden
         display: none
-
 .portifolio
+  position: relative
+  padding: 160px 0
   background-image: url('./../img/background-claro.webp')
   background-size: cover
   background-position: center
   background-repeat: no-repeat
-  padding: 120px 0
-  opacity: 0
-  transform: translateY(40px)
-  transition: opacity .9s ease, transform .9s ease
-  &.show
-    opacity: 1
-    transform: translateY(0)
-  .intro-text
-    display: flex
-    justify-content: center
-    padding: 20px 0 30px 0
-    .portifolio-title
-      color: $color-orange
-      font-family: $font-titulos
-      font-size: 68px
-  .portifolio-item
-    border-radius: 8px
-    overflow: hidden
+  &::before
+    content: ""
+    position: absolute
+    inset: 0
+
+    backdrop-filter: blur(2px)
+    z-index: 0
+  .container
     position: relative
-    cursor: pointer
+    z-index: 1
+  .portifolio-title
+    font-family: $font-titulos
+    font-size: 72px
+    color: $color-orange
+    letter-spacing: 4px
+    margin-bottom: 60px
+    text-align: center
+  .portifolio-item
+    position: relative
+    overflow: hidden
+    border-radius: 18px
+    box-shadow: 0 15px 40px rgba(0,0,0,.15)
+    background: $color-black
+    transition: transform .6s ease, box-shadow .6s ease
+    &:hover
+      transform: translateY(-8px)
+      box-shadow: 0 30px 60px rgba(0,0,0,.25)
     .portifolio-imagem
-      overflow: hidden
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        inset: 0
+        background: linear-gradient(
+          to top,
+          rgba(0,0,0,.75),
+          rgba(0,0,0,.15),
+          transparent
+        )
+        opacity: 0
+        transition: opacity .6s ease
       img
         width: 100%
-        height: auto
         aspect-ratio: 2/3
         object-fit: cover
-        transition: filter 0.9s ease, transform 0.9s ease
+        transition: transform .8s ease, filter .8s ease
     .portifolio-text
       position: absolute
-      bottom: 0%
-      top: 100%
-      width: 100%
-      transition: top 0.9s ease
-      p
-        display: none
-        margin-bottom: 0
+      bottom: 0
+      padding: 30px
+      transform: translateY(30px)
+      opacity: 0
+      transition: opacity .6s ease, transform .6s ease
       .title
-        padding: 10px 0 5px 15px
-        color: $color-orange
         font-family: $font-titulos
-        font-size: 36px
-        letter-spacing: 3px
+        font-size: 32px
+        color: $color-orange
+        margin-bottom: 8px
+        letter-spacing: 2px
       .description
-        padding-left: 15px
-        font-size: 14px
-        font-family: $font-textos
+        font-size: 15px
+        line-height: 1.6
+        margin-bottom: 0px
         color: $color-light-white
     &:hover
-      .portifolio-imagem img
-        filter: grayscale(1)
-        transform: scale(1.03)
+      .portifolio-imagem
+        &::after
+          opacity: 1
+        img
+          transform: scale(1.05)
+          filter: grayscale(1)
       .portifolio-text
-        background: rgba($color-black, 0.45)
-        backdrop-filter: blur(8px)
-        -webkit-backdrop-filter: blur(8px)
-        top: 71%
-        p
-          display: block
+        opacity: 1
+        transform: translateY(0)
 
 .contato
   position: relative
@@ -371,42 +389,243 @@ body
       color: #008009
 
 @media (max-width: 992px)
-  .banner
-    .banner-title
-      font-size: 56px
-    .banner-image
-      display: none
-  .intro
-    padding-top: 100px
-    padding-bottom: 80px
-    .intro-title
-      font-size: 36px
-    .intro-body
-      padding: 0 20px
+  header
+    .logo-wrapper
+      width: 160px
+      padding: 18px
+  .container
+    padding-left: 20px
+    padding-right: 20px
+  .banner-novo
+    padding: 120px 0
+    .banner-novo-container
+      flex-direction: column
+      justify-content: center
+      text-align: center
+      gap: 32px
+    .banner-novo-text
+      max-width: 100%
+      .title
+        font-size: 56px
+      .subtitle
+        font-size: 18px
+    .banner-novo-galeria
+      width: 100%
+      height: 520px
+      .galeria-item
+        width: 190px
+        height: 260px
   .contato
     width: 90%
     padding: 40px
+    border-radius: 20px
+    flex-direction: column
+    align-items: center
+    gap: 32px
+    text-align: center
+    &::before,
+    &::after
+      opacity: .35
+      filter: blur(18px)
     .contato-title
-      font-size: 56px
-    .contato-list .contato-link
-      font-size: 22px
+      font-size: 64px
+      line-height: 1
+      margin-bottom: 0
+    .contato-list
+      padding-left: 0
+      width: 100%
+      align-items: center
+      gap: 18px
+      li
+        width: 100%
+        .contato-link
+          display: flex
+          justify-content: center
+          align-items: center
+          width: 100%
+          padding: 14px 20px
+          font-size: 22px
+          border-radius: 14px
+          background: rgba(0,0,0,0.04)
+          transition: background .3s ease, transform .3s ease
+
+          &:hover
+            background: rgba(0,0,0,0.08)
+            transform: translateY(-2px)
+  .footer
+    padding-inline: 60px
+    padding-top: 60px
+    padding-bottom: 20px
+    .footer-logo
+      justify-content: center
+      margin-bottom: 32px
+    .footer-title
+      font-size: 2.4rem
+      text-align: center
+      margin-bottom: 18px
+    .footer-text
+      text-align: center
+      max-width: 520px
+      margin: 0 auto 32px
+      font-size: 1rem
+    .footer-nav,
+    .footer-social
+      align-items: center
+      text-align: center
+      a
+        justify-content: center
+
+@media (max-width: 768px)
+  header
+    .logo-wrapper
+      width: 140px
+      padding: 14px
+  .banner-novo
+    padding: 100px 0
+    .banner-novo-text
+      .title
+        font-size: 44px
+        line-height: 1.1
+      .subtitle
+        font-size: 17px
+    .banner-novo-galeria
+      height: 420px
+      .galeria-item
+        width: 160px
+        height: 220px
+      .item-1
+        left: 50%
+        transform: translateX(-60px)
+      .item-2
+        right: 50%
+        transform: translateX(60px)
+      .item-3,
+      .item-4
+        display: none
+  .intro
+    .intro-text
+      flex-direction: column
+      align-items: center
+      text-align: center
+      gap: 24px
+    .intro-title
+      &::after
+        margin: 14px auto 0
+    .intro-body
+      max-width: 100%
+      .description
+        text-align: center
+  .portifolio
+    padding: 80px 0
+    .portifolio-title
+      font-size: clamp(1.6rem, 5.5vw, 3.6rem)
+  .contato
+    width: 92%
+    padding: 28px
+    flex-direction: column
+    align-items: center
+    border-radius: 18px
+    .contato-title
+      font-size: clamp(2.2rem, 7vw, 4rem)
+      text-align: center
+      margin-bottom: 18px
+    .contato-list
+      padding-left: 0
+      align-items: center
+      width: 100%
+      li
+        width: 100%
+        .contato-link
+          display: inline-block
+          width: 100%
+          padding: 12px 18px
+          text-align: center
+          border-radius: 10px
+  .footer
+    padding-inline: 32px
+    .footer-title
+      font-size: 2rem
+    .footer-nav a
+      font-size: 20px
+    .footer-social a
+      font-size: 1rem
 
 @media (max-width: 576px)
-  .banner
+  header
+    padding: 0
+    .logo-wrapper
+      width: 130px
+      padding: 12px
+  .banner-novo
     padding: 60px 0
-    .banner-title
-      font-size: 40px
-  .portifolio
-    .portifolio-item
-      .portifolio-text
-        .title
-          font-size: 22px
-        .description
-          font-size: 14px
-  .contato
-    text-align: center
-    padding: 35px
-    .contato-title
-      font-size: 48px
-    .contato-list
+    .banner-novo-container
+      flex-direction: column
       align-items: center
+      text-align: center
+      gap: 20px
+    .banner-novo-text
+      max-width: 100%
+      .title
+        font-size: 30px
+        line-height: 1.05
+        margin-bottom: 6px
+        letter-spacing: 1px
+      .subtitle
+        font-size: 14px
+        opacity: .9
+    .banner-novo-galeria
+      width: 100%
+      height: auto
+      position: relative
+      .galeria-track
+        display: flex
+        gap: 14px
+        overflow-x: auto
+        padding: 10px 6px
+        scroll-snap-type: x mandatory
+        -webkit-overflow-scrolling: touch
+        scrollbar-width: none
+        &::-webkit-scrollbar
+          display: none
+      .galeria-item
+        position: relative
+        flex: 0 0 auto
+        width: 72%
+        max-width: 260px
+        aspect-ratio: 3 / 4
+        height: auto
+        border-radius: 14px
+        object-fit: cover
+        opacity: 1
+        transform: none
+        scroll-snap-align: center
+        box-shadow: 0 12px 26px rgba(0,0,0,.18)
+        animation: none
+  .intro
+    padding-block: 60px
+    .intro-title
+      font-size: 1.6rem
+  .portifolio
+    padding: 80px 0
+    .portifolio-title
+      font-size: 1.8rem
+  .contato
+    width: 96%
+    padding: 20px
+    .contato-title
+      font-size: 2.2rem
+    .contato-list
+      gap: 12px
+      li
+        .contato-link
+          font-size: 18px
+          padding: 10px 12px
+  .footer
+    padding-inline: 16px
+    .footer-title
+      font-size: 1.6rem
+    .footer-text
+      font-size: .95rem
+    .footer-bottom
+      margin-top: 30px
+      font-size: .8rem

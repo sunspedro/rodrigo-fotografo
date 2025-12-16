@@ -28,10 +28,12 @@
         <p class="subtitle">Fotografia com intensidade, emoção e autenticidade.</p>
       </div>
       <div class="banner-novo-galeria">
-        <img src="img/amigos/1.webp" class="galeria-item item-1" alt="">
-        <img src="img/lugares/01.webp" class="galeria-item item-2" alt="">
-        <img src="img/estudio/1.webp" class="galeria-item item-3" alt="">
-        <img src="img/amigos/2.webp" class="galeria-item item-4" alt="">
+        <div class="galeria-track">
+          <img src="img/amigos/1.webp" class="galeria-item item-1" alt="">
+          <img src="img/lugares/1.webp" class="galeria-item item-2" alt="">
+          <img src="img/estudio/1.webp" class="galeria-item item-3" alt="">
+          <img src="img/amigos/2.webp" class="galeria-item item-4" alt="">
+        </div>
       </div>
     </div>
   </section>
@@ -68,24 +70,22 @@
               </div>
               <div class="portifolio-text">
                 <p class="title">Retratos Naturais</p>
-                <p class="description">Um olhar simples e verdadeiro sobre quem você é.</p>
-                <p class="description">Retratos que guardam emoção, leveza e autenticidade.</p>
+                <p class="description">Um olhar simples e verdadeiro sobre quem você é. Retratos que guardam emoção, leveza e autenticidade.</p>
               </div>
             </article>
           </a>
-          <?php for($i=2;$i<17;$i++): ?>
+          <?php for($i=2;$i<19;$i++): ?>
             <a data-fancybox="galeria-amigos" href="img/amigos/<?php echo $i ?>.webp" title="Foto da galeria Amigos — <?php echo $i ?>">
               <img src="img/amigos/<?php echo $i ?>.webp"alt="Foto da galeria Amigos número <?php echo $i ?>"style="display:none"
               >
             </a>
           <?php endfor; ?>
         </div>
-
         <div class="col-lg-4">
           <a data-fancybox="galeria-lugares" href="img/lugares/1.webp">
             <article class="portifolio-item" aria-label="Paisagens Cotidianas">
               <div class="portifolio-imagem">
-                <img src="img/lugares/1.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy"/>
+                <img src="img/lugares/1.webp" class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Paisagens Cotidianas"/>
               </div>
               <div class="portifolio-text">
                 <p class="title">Paisagens Cotidianas</p>
@@ -99,12 +99,11 @@
             </a>
           <?php endfor; ?>
         </div>
-
         <div class="col-lg-4">
           <a data-fancybox="galeria-estudio" href="img/estudio/1.webp">
             <article class="portifolio-item" aria-label="estudio">
               <div class="portifolio-imagem">
-                <img src="img/estudio/1.webp"class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Foto diversa pertencente à categoria estudio"/>
+                <img src="img/estudio/1.webp"class="img-fluid lazyload" width="500" height="750" loading="lazy" alt="Banner Sessão de estudio"/>
               </div>
               <div class="portifolio-text">
                 <p class="title">Sessão de estudio</p>
@@ -156,7 +155,7 @@
 <footer class="footer">
   <div class="container-fluid py-5">
     <div class="row d-flex">
-      <div class="col-lg-4 col-md-6 footer-logo">
+      <div class="col-lg-4 col-md-6 d-lg-flex justify-content-center footer-logo">
         <img src="img/logo-colorido.webp" alt="Logo colorido de Rodrigo Paim" title="Logo Colorido — Rodrigo Paim">
       </div>
 

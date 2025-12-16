@@ -50,23 +50,25 @@ document.addEventListener("scroll", () => {
 
 //banner
 document.addEventListener("DOMContentLoaded", () => {
-  const bannerNovo = document.querySelector(".banner-novo");
-
-  if (!bannerNovo) return;
+  const sections = document.querySelectorAll(
+    ".banner-novo, .intro, .portifolio"
+  );
 
   const observer = new IntersectionObserver(
-    (entries, obs) => {
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          bannerNovo.classList.add("show");
-          obs.unobserve(bannerNovo);
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.2 }
+    {
+      threshold: 0.01
+    }
   );
 
-  observer.observe(bannerNovo);
+  sections.forEach(section => observer.observe(section));
 });
 
 //entrada-portifolio
