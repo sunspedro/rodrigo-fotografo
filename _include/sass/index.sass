@@ -261,6 +261,7 @@ body
   box-shadow: 0 10px 40px rgba(0,0,0,0.15)
   transition: transform .5s ease, box-shadow .5s ease, background-color 1s ease-in-out
   &::before
+    z-index: 1
     content: ""
     position: absolute
     width: 180px
@@ -273,6 +274,7 @@ body
     filter: blur(14px)
     transition: background-color 1s ease-in-out, opacity 1s ease-in-out
   &::after
+    z-index: 2
     content: ""
     position: absolute
     width: 260px
@@ -307,6 +309,7 @@ body
     flex-direction: column
     gap: 16px
     li
+      z-index: 10
       .contato-link
         text-decoration: none
         color: $color-black
@@ -462,7 +465,7 @@ body
     .footer-title
       font-size: 2.4rem
       text-align: center
-      margin-bottom: 18px
+      margin-block: 18px
     .footer-text
       text-align: center
       max-width: 520px
@@ -545,6 +548,7 @@ body
     padding-inline: 32px
     .footer-title
       font-size: 2rem
+      margin-block: 18px
     .footer-nav a
       font-size: 20px
     .footer-social a

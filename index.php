@@ -155,7 +155,7 @@
 <footer class="footer">
   <div class="container-fluid py-5">
     <div class="row d-flex">
-      <div class="col-lg-4 col-md-6 d-lg-flex justify-content-center footer-logo">
+      <div class="col-lg-4 col-md-6 d-flex justify-content-center footer-logo">
         <img src="img/logo-colorido.webp" alt="Logo colorido de Rodrigo Paim" title="Logo Colorido — Rodrigo Paim">
       </div>
 
